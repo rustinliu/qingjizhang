@@ -1,7 +1,6 @@
 <template>
     <div>
-        Account.vue
-        <Nav></Nav>
+        <Layout>Accout</Layout>
     </div>
 </template>
 
@@ -9,5 +8,3 @@
 import Vue from "vue";
 export default Vue.extend({});
 </script>
-
-<style lang="scss" scoped></style>
