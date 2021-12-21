@@ -1,4 +1,9 @@
-<template><div>3</div></template>
+<template>
+    <div>
+        statistics.vue
+        <Nav></Nav>
+    </div>
+</template>
 
 <script lang="ts">
 import Vue from "vue";

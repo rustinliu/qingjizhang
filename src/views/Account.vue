@@ -1,18 +1,13 @@
 <template>
     <div>
-        <h1>{{ a }}</h1>
+        Account.vue
+        <Nav></Nav>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-export default Vue.extend({
-    data() {
-        return {
-            a: 1,
-        };
-    },
-});
+export default Vue.extend({});
 </script>
 
 <style lang="scss" scoped></style>

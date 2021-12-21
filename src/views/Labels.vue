@@ -1,4 +1,9 @@
-<template><div>2</div></template>
+<template>
+    <div>
+        Label.vue
+        <Nav></Nav>
+    </div>
+</template>
 
 <script lang="ts">
 import Vue from "vue";
