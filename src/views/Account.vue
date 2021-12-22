@@ -1,59 +1,22 @@
 <template>
-    <div>
-        <Layout>
-            <div class="tags">
-                <div class="current">
-                    <ul>
-                        <li>医</li>
-                        <li>食</li>
-                        <li>住</li>
-                        <li>行</li>
-                    </ul>
-                </div>
-                <div class="new">
-                    <button>新增标签</button>
-                </div>
-            </div>
-            <div>
-                <label class="notes">
-                    <span class="name">备注</span>
-                    <input type="text" name="" id="" />
-                </label>
-            </div>
-            <div>
-                <ul class="types">
-                    <li class="selected">支出</li>
-                    <li>收入</li>
-                </ul>
-            </div>
-            <div class="numberPad">
-                <div class="output">1000</div>
-                <div class="buttons">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>删除</button>
-                    <button>4</button>
-                    <button>5</button>
-                    <button>6</button>
-                    <button>清空</button>
-                    <button>7</button>
-                    <button>8</button>
-                    <button>9</button>
-                    <button>0</button>
-                    <button>.</button>
-                </div>
-            </div>
-        </Layout>
-    </div>
+    <Layout class-prefix="layout">
+        <NumberPad />
+        <Types />
+        <Notes />
+        <Tags />
+    </Layout>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import x from "@/assets/icons/money.svg";
-console.log(x);
+import Tags from "@/components/Account/Tags.vue";
+import Types from "@/components/Account/Types.vue";
+import Notes from "@/components/Account/Notes.vue";
+import NumberPad from "@/components/Account/NumberPad.vue";
 
-export default Vue.extend({});
+export default Vue.extend({
+    components: { Tags, Notes, Types, NumberPad },
+});
 </script>
 
 <style lang="scss" scoped></style>
