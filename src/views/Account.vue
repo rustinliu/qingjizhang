@@ -15,15 +15,16 @@ import Types from "@/components/Account/Types.vue";
 import Notes from "@/components/Account/Notes.vue";
 import Component from "vue-class-component";
 import { Watch } from "vue-property-decorator";
-import model from "@/model";
+import recordListModel from "@/models/recordList";
+import tagListModel from "@/models/tagListModel";
 
 @Component({
     components: { Tags, Notes, Types, NumberPad },
 })
 export default class Account extends Vue {
-    tags = ["衣", "食", "住", "行"];
+    tags = tagListModel.fetch();
     record: RecordItem = { tags: [], notes: "", type: "-", amount: 0 };
-    recordList = model.fetch();
+    recordList = recordListModel.fetch();
     onUpdatedTags(value: string[]) {
         this.record.tags = value;
     }
@@ -37,7 +38,7 @@ export default class Account extends Vue {
     }
     @Watch("recordList")
     onRecordListChange() {
-        model.save(this.recordList);
+        recordListModel.save(this.recordList);
     }
 }
 </script>
