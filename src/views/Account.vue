@@ -29,7 +29,7 @@ import tagListModel from "@/models/tagListModel";
     components: { Tags, FormItem, Types, NumberPad },
 })
 export default class Account extends Vue {
-    tags = tagListModel.fetch();
+    tags = window.tagList;
     record: RecordItem = { tags: [], notes: "", type: "-", amount: 0 };
     recordList = recordListModel.fetch();
     onUpdatedTags(value: string[]) {
@@ -39,13 +39,11 @@ export default class Account extends Vue {
         this.record.notes = value;
     }
     saveRecord() {
-        const record2: RecordItem = JSON.parse(JSON.stringify(this.record));
-        record2.creatdAt = new Date();
-        this.recordList.push(record2);
+        recordListModel.create(this.record);
     }
     @Watch("recordList")
     onRecordListChange() {
-        recordListModel.save(this.recordList);
+        recordListModel.save();
     }
 }
 </script>
