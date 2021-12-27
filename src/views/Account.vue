@@ -23,7 +23,6 @@ import FormItem from "@/components/Account/FormItem.vue";
 import Component from "vue-class-component";
 import { Watch } from "vue-property-decorator";
 import recordListModel from "@/models/recordList";
-import tagListModel from "@/models/tagListModel";
 
 @Component({
     components: { Tags, FormItem, Types, NumberPad },

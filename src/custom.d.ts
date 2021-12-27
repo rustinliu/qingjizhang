@@ -9,6 +9,9 @@ type RecordItem = {
 interface Window {
     tagList: Tag[];
     createTag: (name: string) => void;
+    removeTag: (id: string) => boolean;
+    updateTag: tagListModel["update"];
+    findTag: (id: string) => Tag | undefined;
 }
 
 type Tag = {
