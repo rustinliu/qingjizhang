@@ -6,15 +6,7 @@ type RecordItem = {
     creatdAt?: Date;
 };
 
-interface Window {
-    tagList: Tag[];
-    createTag: (name: string) => void;
-    removeTag: (id: string) => boolean;
-    updateTag: tagListModel["update"];
-    findTag: (id: string) => Tag | undefined;
-    recordList: RecordItem[];
-    createRecord: (record: RecordItem) => void;
-}
+interface Window {}
 
 type Tag = {
     id: string;
