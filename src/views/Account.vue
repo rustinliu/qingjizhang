@@ -21,13 +21,12 @@ import Tags from "@/components/Account/Tags.vue";
 import Types from "@/components/Account/Types.vue";
 import FormItem from "@/components/Account/FormItem.vue";
 import Component from "vue-class-component";
-import store from "@/store/index2";
 
 @Component({
     components: { Tags, FormItem, Types, NumberPad },
     computed: {
         recordList() {
-            return store.recordList; //
+            return this.$store.state.recordList;
         },
     },
 })
@@ -40,7 +39,11 @@ export default class Account extends Vue {
         this.record.notes = value;
     }
     saveRecord() {
-        store.createRecord(this.record);
+        this.$store.commit("createRecord", this.record);
+    }
+
+    created() {
+        this.$store.commit("fetchRecords");
     }
 }
 </script>

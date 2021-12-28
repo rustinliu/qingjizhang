@@ -20,20 +20,21 @@
 import Icon from "@/components/Icon.vue";
 import Layout from "@/components/Layout.vue";
 import Button from "@/components/Button.vue";
-import Vue from "vue";
-import { Component } from "vue-property-decorator";
-import store from "@/store/index2";
 
+import { Component } from "vue-property-decorator";
+import { mixins } from "vue-class-component";
+import { tagHelper } from "@/mixins/tagHelper";
 @Component({
     components: { Layout, Icon, Button },
+    computed: {
+        tags() {
+            return this.$store.state.tagList;
+        },
+    },
 })
-export default class Labels extends Vue {
-    tags = store.tagList;
-    createTag() {
-        const name = window.prompt("请输入标签名");
-        if (name) {
-            store.createTag(name);
-        }
+export default class Labels extends mixins(tagHelper) {
+    beforeCreate() {
+        this.$store.commit("fetchTags");
     }
 }
 </script>
