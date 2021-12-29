@@ -1,7 +1,7 @@
 <template>
     <Layout class-prefix="layout">
         <NumberPad :value.sync="record.amount" @submit="saveRecord" />
-        <Types :value.sync="record.type" />
+        <Tabs :value.sync="record.type" :data-source="typeList" />
         <div class="notes">
             <FormItem
                 placeholder="在这里输入备注"
@@ -18,14 +18,16 @@
 import Vue from "vue";
 import NumberPad from "@/components/Account/NumberPad.vue";
 import Tags from "@/components/Account/Tags.vue";
-import Types from "@/components/Account/Types.vue";
+import Tabs from "@/components/Tabs.vue";
 import FormItem from "@/components/Account/FormItem.vue";
 import Component from "vue-class-component";
+import typeList from "@/constans/typeList";
 
 @Component({
-    components: { Tags, FormItem, Types, NumberPad },
+    components: { Tags, FormItem, Tabs, NumberPad },
 })
 export default class Account extends Vue {
+    typeList = typeList;
     get recordList() {
         return this.$store.state.recordList;
     }
