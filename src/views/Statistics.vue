@@ -14,14 +14,12 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Types from "@/components/Account/Types.vue";
 import Component from "vue-class-component";
 import Tab from "@/components/Tabs.vue";
 import intervalList from "@/constans/intervalList";
 import typeList from "@/constans/typeList";
 @Component({
     components: {
-        Types,
         Tab,
     },
 })
@@ -42,5 +40,8 @@ export default class Statistics extends Vue {
             display: none;
         }
     }
+}
+::v-deep .interval-tabs-item {
+    height: 48px;
 }
 </style>
