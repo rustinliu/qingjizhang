@@ -24,13 +24,11 @@ import Component from "vue-class-component";
 
 @Component({
     components: { Tags, FormItem, Types, NumberPad },
-    computed: {
-        recordList() {
-            return this.$store.state.recordList;
-        },
-    },
 })
 export default class Account extends Vue {
+    get recordList() {
+        return this.$store.state.recordList;
+    }
     record: RecordItem = { tags: [], notes: "", type: "-", amount: 0 };
 
     // recordList = store.recordList; 这里在APP.vue里面添加对store的监测，然后使用computed来获取数据，

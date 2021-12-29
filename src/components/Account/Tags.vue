@@ -22,14 +22,11 @@ import { Component } from "vue-property-decorator";
 import { tagHelper } from "@/mixins/tagHelper";
 import { mixins } from "vue-class-component";
 
-@Component({
-    computed: {
-        tagList() {
-            return this.$store.state.tagList;
-        },
-    },
-})
+@Component
 export default class Tags extends mixins(tagHelper) {
+    get tagList() {
+        return this.$store.state.tagList;
+    }
     created() {
         this.$store.commit("fetchTags");
     }
