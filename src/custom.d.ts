@@ -1,9 +1,14 @@
+type rootState = {
+    recordList: RecordItem[];
+    tagList: Tag[];
+    currentTag?: Tag;
+};
 type RecordItem = {
     tags: string[];
     notes: string;
     type: string;
     amount: number;
-    creatdAt?: Date;
+    creatdAt?: string;
 };
 
 interface Window {}

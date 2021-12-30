@@ -6,6 +6,7 @@
             :key="item.value"
             @click="select(item)"
             class="tabs-item"
+            :style="{ height: height }"
         >
             {{ item.text }}
         </li>
@@ -30,6 +31,11 @@ export default class Tabs extends Vue {
     }[];
     @Prop(String) value!: string;
     @Prop(String) classPrefix?: string;
+    @Prop({
+        type: String,
+        default: "64px",
+    })
+    height!: string;
 
     liclass(item: DataSourceItem) {
         return {
@@ -51,7 +57,7 @@ export default class Tabs extends Vue {
     font-size: 24px;
     &-item {
         width: 50%;
-        height: 64px;
+        // height: 64px;
         display: flex;
         justify-content: center;
         align-items: center;

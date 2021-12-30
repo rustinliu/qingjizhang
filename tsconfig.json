@@ -24,7 +24,7 @@
         "src/**/*.vue",
         "tests/**/*.ts",
         "tests/**/*.tsx",
-        "src/mixins/tagHelper.ts"
+        "src/mixins/tagHelper.js"
     ],
     "exclude": ["node_modules"]
 }
