@@ -6,11 +6,11 @@
             <FormItem
                 placeholder="在这里输入备注"
                 fieldName="备注"
-                @update:value="onUpdateNotes"
+                :value.sync="record.notes"
             />
         </div>
 
-        <Tags />
+        <Tags :value.sync="record.tags" />
     </Layout>
 </template>
 
@@ -35,11 +35,12 @@ export default class Account extends Vue {
 
     // recordList = store.recordList; 这里在APP.vue里面添加对store的监测，然后使用computed来获取数据，
 
-    onUpdateNotes(value: string) {
-        this.record.notes = value;
-    }
     saveRecord() {
+        if (!this.record.tags || this.record.tags.length === 0) {
+            return window.alert("请至少选择一个标签");
+        }
         this.$store.commit("createRecord", this.record);
+        this.record.notes = "";
     }
 
     created() {
