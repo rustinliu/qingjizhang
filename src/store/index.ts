@@ -7,18 +7,13 @@ import router from "@/router";
 Vue.use(Vuex); //把store绑到Vue.prototype.$store = store;
 const localStorageKeyName = "recordList";
 
-type rootState = {
-    recordList: RecordItem[];
-    tagList: Tag[];
-    currentTag?: Tag;
-    createRecordError?: Error | null;
-};
 const store = new Vuex.Store({
     state: {
         recordList: [],
         tagList: [],
         currentTag: undefined,
         createRecordError: null,
+        createTagError: null,
     } as rootState,
     mutations: {
         fetchRecords(state) {
@@ -50,14 +45,15 @@ const store = new Vuex.Store({
             }
         },
         createTag(state, name: string) {
+            state.createTagError = null;
             const names = state.tagList.map((item) => item.name);
             if (names.indexOf(name) >= 0) {
-                window.alert("标签名重复");
+                state.createTagError = new Error("tag name duplicated");
+                return;
             }
             const id = createId().toString();
             state.tagList.push({ id, name: name });
             store.commit("saveTags");
-            window.alert("添加成功");
         },
         saveTags(state) {
             window.localStorage.setItem(
