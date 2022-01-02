@@ -2,6 +2,14 @@
     <Layout class-prefix="layout">
         <NumberPad :value.sync="record.amount" @submit="saveRecord" />
         <Tabs :value.sync="record.type" :data-source="typeList" />
+        <div class="createAt">
+            <FormItem
+                placeholder="在这里输入日期"
+                fieldName="日期"
+                :value.sync="record.creatdAt"
+                type="date"
+            />
+        </div>
         <div class="notes">
             <FormItem
                 placeholder="在这里输入备注"
@@ -31,7 +39,13 @@ export default class Account extends Vue {
     get recordList() {
         return this.$store.state.recordList;
     }
-    record: RecordItem = { tags: [], notes: "", type: "-", amount: 0 };
+    record: RecordItem = {
+        tags: [],
+        notes: "",
+        type: "-",
+        amount: 0,
+        creatdAt: new Date().toString(),
+    };
 
     // recordList = store.recordList; 这里在APP.vue里面添加对store的监测，然后使用computed来获取数据，
 

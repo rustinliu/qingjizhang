@@ -3,9 +3,9 @@
         <label class="formItem">
             <span class="name">{{ this.fieldName }}</span>
             <input
-                type="text"
+                :type="type || 'text'"
                 :placeholder="placeholder"
-                :value="value"
+                :value="x(value)"
                 @input="onValueChanged($event.target.value)"
             />
         </label>
@@ -13,15 +13,22 @@
 </template>
 
 <script lang="ts">
+import dayjs from "dayjs";
 import Vue from "vue";
 import { Component, Prop, Watch } from "vue-property-decorator";
 @Component
 export default class Notes extends Vue {
-    @Prop({ default: "" }) readonly value!: string;
+    @Prop() readonly value!: string;
     @Prop({ required: true }) fieldName!: string;
     @Prop() placeholder?: string;
     onValueChanged(value: string) {
         this.$emit("update:value", value);
+    }
+    @Prop(String) type?: string;
+    x(value: string) {
+        if (this.type) {
+            return dayjs(value).format("YYYY-MM-DD");
+        } else return value;
     }
 }
 </script>
