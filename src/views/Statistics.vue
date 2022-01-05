@@ -135,6 +135,9 @@ export default class Statistics extends Vue {
         return array;
     }
     get chartOptions() {
+        const keys = this.keyvalueList.map((item) => item.date);
+        const values = this.keyvalueList.map((item) => item.value);
+        return {
             grid: {
                 left: 0,
                 right: 0,
