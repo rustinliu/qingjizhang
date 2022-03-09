@@ -1,32 +1,26 @@
-type rootState = {
-    recordList: RecordItem[];
-    tagList: Tag[];
-    currentTag?: Tag;
-    createTagError: error | null;
-    createRecordError: error | null;
-};
 type RecordItem = {
-    tags: Tag[];
-    notes: string;
-    type: string;
-    amount: number;
-    creatdAt?: string;
-};
-
-interface Window {}
+  tagIds: string[];
+  note: string;
+  createdAt: string;
+  category: '-' | '+';
+  amount: number;
+}
 
 type Tag = {
-    id: string;
-    name: string;
-};
-type tagListModel = {
-    data: Tag[];
-    fetch: () => Tag[];
-    create: (name: string) => "success" | "duplicated";
-    save: () => void;
-    update: (
-        id: string,
-        name: string
-    ) => "success" | "not found" | "duplicated";
-    remove: (id: string) => boolean;
-};
+  id: string;
+  name: string;
+  iconName: string;
+  mold: string;
+}
+
+type RootStore = {
+  recordList: RecordItem[];
+  tagList: Tag[];
+}
+
+type Payload = {
+  id?: string;
+  name: string;
+  iconName: string;
+  mold: string;
+}

@@ -1,24 +1,28 @@
 <template>
-    <div id="app">
-        <router-view></router-view>
-    </div>
+  <div id="app">
+    <router-view/>
+  </div>
 </template>
 
-<style lang="scss">
-@import "~@/assets/style/reset.scss";
-@import "~@/assets/style/helper.scss";
+<script lang="ts">
 
-body {
-    background: #f5f5f5;
-    font-family: $font-hei;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #333;
-    font-size: 16px;
-    line-height: 1.5;
-}
-#app {
-    max-width: 500px;
+  import Vue from 'vue';
+  import {Component} from 'vue-property-decorator';
+
+  @Component
+  export default class App extends Vue {
+
+    beforeCreate() {
+      this.$store.commit('fetchRecords');
+      this.$store.commit('fetchTags');
+    }
+  }
+</script>
+<style lang="scss">
+  @import "~@/assets/style/index.scss";
+
+  #app {
+    max-width: 520px;
     margin: 0 auto;
-}
+  }
 </style>
