@@ -40,14 +40,18 @@ export default class Statistics extends Vue {
         justify-content: center;
 
         > li {
-            margin: 4px 8px;
-            padding: 10px 24px;
-            background-color: #fff;
-            color: #000;
-            border-radius: 10px;
-
+            a {
+                display: block;
+                margin: 4px 8px;
+                padding: 10px 24px;
+                background-color: #fff;
+                color: #000;
+                border-radius: 10px;
+            }
             &.selected {
-                background-color: $theme-color;
+                a {
+                    background-color: $theme-color;
+                }
             }
         }
     }

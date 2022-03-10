@@ -1,8 +1,6 @@
 <template>
     <div>
-        <div class="money-link">
-            <router-link to="/home/money">记一笔</router-link>
-        </div>
+        <router-link class="money-link" to="/home/money">记一笔</router-link>
         <router-view />
     </div>
 </template>
@@ -18,6 +16,7 @@ export default class MoneyKey extends Vue {}
 <style lang="scss" scoped>
 @import '~@/assets/style/helper.scss';
 .money-link {
+    display: block;
     margin: 28px auto 0;
     background-color: $theme-color;
     color: white;
