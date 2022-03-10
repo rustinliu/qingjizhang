@@ -23,6 +23,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import '~@/assets/style/helper.scss';
   .typeSection-wrapper {
     margin-top: 12px;
     margin-bottom: 22px;
@@ -38,7 +39,7 @@
       }
 
       .selected {
-        background-color: #9ccac0;
+        background-color: $theme-color;
         border: none;
         color: white;
         border-radius: 4px;
