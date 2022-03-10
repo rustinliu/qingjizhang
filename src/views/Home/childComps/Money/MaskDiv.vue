@@ -44,7 +44,8 @@ export default class MaskDiv extends Vue {
     top: 0;
     bottom: 0;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     z-index: 2;
 
     .box {
