@@ -2,7 +2,7 @@
     <div class="maskDiv">
         <div class="box">
             <div class="title">
-                <Icon iconName="占位" />
+                <Icon iconName="placeholder" />
                 <span>记账备注</span>
                 <span @click="closeMask"><Icon iconName="close" /></span>
             </div>
@@ -29,6 +29,8 @@ export default class MaskDiv extends Vue {
     sureText(notes: string) {
         if (notes !== '') {
             this.$emit('sureText', notes.trim());
+        } else {
+            this.closeMask();
         }
     }
 }

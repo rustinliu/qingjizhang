@@ -53,12 +53,6 @@ export default class EditTag extends Vue {
     tag = this.$store.getters.findTag(this.id);
     value = (this.tag && this.tag.name) || '';
 
-    created() {
-        // if (!this.tag) {
-        //   //表示进入新建分类
-        // }
-    }
-
     getCategory(category: string) {
         this.mold = category;
     }

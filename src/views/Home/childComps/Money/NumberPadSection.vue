@@ -5,7 +5,7 @@
             <button>1</button>
             <button>2</button>
             <button>3</button>
-            <button class="today">清零</button>
+            <button class="rtz">清零</button>
             <button>4</button>
             <button>5</button>
             <button>6</button>
@@ -79,7 +79,7 @@ export default class NumberPadSection extends Vue {
             border: 1px solid #000;
             margin-bottom: 12px;
 
-            &.today {
+            &.rtz {
                 background-color: #f0aa9f;
             }
 
