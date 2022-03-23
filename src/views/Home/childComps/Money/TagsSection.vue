@@ -57,6 +57,7 @@ export default class TagsSection extends Vue {
 </script>
 
 <style lang="scss" scoped>
+$theme-color: #bba1cb;
 .tags-wrapper {
     padding: 20px 38px;
 
@@ -94,7 +95,7 @@ export default class TagsSection extends Vue {
         }
 
         .selected {
-            background-color: #a1ddd4;
+            background-color: $theme-color;
             box-shadow: 1px 2px 2px #ddd;
         }
     }

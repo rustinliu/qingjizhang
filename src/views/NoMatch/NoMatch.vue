@@ -1,16 +1,14 @@
 <template>
-  <div>
-    Not Fount...
-    <router-link to="/home">返回首页</router-link>
-  </div>
+    <div>
+        Not Fount...
+        <router-link to="/home">返回首页</router-link>
+    </div>
 </template>
 
 <script lang="ts">
-  export default {
-    name: 'NoMatch'
-  };
+export default {
+    name: 'NoMatch',
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
