@@ -1,15 +1,5 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Home from '@/views/Home/Home.vue';
-import Detail from '@/views/Detail/Detail.vue';
-import Statistics from '@/views/Statistics/Statistics.vue';
-import NoMatch from '@/views/NoMatch/NoMatch.vue';
-import Money from '@/views/Home/childComps/Money/Money.vue';
-import Edit from '@/views/Home/childComps/Edit/Edit.vue';
-import EditTag from '@/views/Home/childComps/Edit/EditTag.vue';
-import OverviewChart from '@/views/Statistics/childComps/OverviewChart.vue';
-import ExpensesChart from '@/views/Statistics/childComps/ExpensesChart.vue';
-import IncomeChart from '@/views/Statistics/childComps/IncomeChart.vue';
 
 Vue.use(VueRouter);
 
@@ -21,20 +11,20 @@ const routes: Array<RouteConfig> = [
     {
         path: '/home',
         name: 'Home',
-        component: Home,
+        component: () => import('@/views/Home/Home.vue'),
         children: [
             {
                 path: 'money',
-                component: Money,
+                component: () => import('@/views/Home/childComps/Money/Money.vue'),
                 children: [
                     {
                         name: 'Edit',
                         path: 'edit',
-                        component: Edit,
+                        component: () => import('@/views/Home/childComps/Edit/Edit.vue'),
                         children: [
                             {
                                 path: ':id',
-                                component: EditTag,
+                                component: () => import('@/views/Home/childComps/Edit/EditTag.vue'),
                             },
                         ],
                     },
@@ -45,24 +35,24 @@ const routes: Array<RouteConfig> = [
     {
         path: '/detail',
         name: 'Detail',
-        component: Detail,
+        component: () => import('@/views/Detail/Detail.vue'),
     },
     {
         path: '/statistics',
         name: 'Statistics',
-        component: Statistics,
+        component: () => import('@/views/Statistics/Statistics.vue'),
         children: [
             {
                 path: 'overview',
-                component: OverviewChart,
+                component: () => import('@/views/Statistics/childComps/OverviewChart.vue'),
             },
             {
                 path: 'expenses',
-                component: ExpensesChart,
+                component: () => import('@/views/Statistics/childComps/ExpensesChart.vue'),
             },
             {
                 path: 'income',
-                component: IncomeChart,
+                component: () => import('@/views/Statistics/childComps/IncomeChart.vue'),
             },
             {
                 path: '/statistics',
@@ -73,7 +63,7 @@ const routes: Array<RouteConfig> = [
     {
         path: '*',
         name: 'NoMatch',
-        component: NoMatch,
+        component: () => import('@/views/NoMatch/NoMatch.vue'),
     },
 ];
 
